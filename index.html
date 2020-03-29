@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-block">
+        <div class="main-block__container">
+            <h1>ToDoList</h1>
+            <div class="main-block__list">
+                <div class="main-block__task-input">
+                    <div class="main-block__input-field">
+                        <input type="text" id="taskinput" placeholder="Type task here...">
+                    </div>
+                    <div class="main-block__button">
+                        <button>Add task</button>
+                    </div>
+                </div>
+                <!-- <div class="main-block__table-info">
+                    <table>
+                        <tr>
+                            <td>#</td>
+                            <td>Task</td>
+                            <td>Created date</td>
+                            <td>Completed</td>
+                        </tr>
+                    </table>
+                </div> -->
+                <div class="main-block__tasks">
+                    <table id="tableTaskList">
+                        <tr>
+                            <td>#</td>
+                            <td width="45%">Task</td>
+                            <td>Created date</td>
+                            <td width="5%">Completed</td>
+                        </tr>
+                    </table>
+                    <!-- <ul id="tasklist">
+                        <li><input type="checkbox">Купить молоко<span class="checkmark"></span></li>
+                        <li><input type="checkbox">Сверстать ToDoList через SASS</li>
+                        <li><input type="checkbox">Выучить JavaScript</li>
+                        <li><input type="checkbox">Пройти раздел "функции" в HTML Academy</li>
+                        <li><input type="checkbox">Добавить новый функционал в ToDoList</li>
+                        <li><input type="checkbox">Добавить новый функционал в ToDoList</li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const tableTaskList = document.getElementById("tableTaskList");
+    let i = 1;
+
+    // date and time when task was added
+    var today = new Date();
+    var date = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
+    var time = today.getHours() + ":" + today.getMinutes();
+    var dateTime = date+' '+time;
+
+    const addNewTask = (value) => {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        tr.setAttribute("for", "ch" + i);
+
+        const checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.setAttribute("id", "ch" + i);
+
+        // const toggle = () => {
+        //     td.classList.toggle("completed");
+        // };
+        // checkbox.addEventListener("click", toggle);
+
+        const title = document.createElement("td");
+        title.innerText = value;
+
+        const taskDate = document.createElement("td");
+        taskDate.innerText = dateTime;
+
+        const taskNumber = document.createElement("td");
+        taskNumber.innerText = i;
+
+        tableTaskList.appendChild(tr);
+        tr.appendChild(taskNumber);
+        tr.appendChild(title);
+        tr.appendChild(taskDate);
+        tr.appendChild(td);
+        td.appendChild(checkbox);
+        i++;
+    };
+
+    const addKey = (event) => {
+        if (event.code === "Enter") {
+            addNewTask(event.target.value);
+            event.target.value = "";
+        }
+    };
+
+    const taskinput = document.getElementById("taskinput");
+    taskinput.addEventListener("keyup", addKey);
+
+
+
+    // const tasklist = document.getElementById("tasklist"); // находим элемент с id tasklist это <ul>
+    // let i = 0;
+    // // создаем функцию добаления нового таска
+    // const addTask = (value) => {
+    //     const li = document.createElement("li"); // создаем <li>
+    //     const label = document.createElement("label"); // создаем <label>
+    //     label.setAttribute("class", "item"); // добавляем для <label> класс item
+    //     label.setAttribute("for", "ch" + i); // добавляем атрибут for со значением равным id чекбокса
+
+    //     const checkbox = document.createElement("input");
+    //     checkbox.setAttribute("type", "checkbox");
+    //     checkbox.setAttribute("id", "ch" + i);
+    //     // checkbox.setAttribute("name", "ch1"); // добавляем атрибут
+    //     // checkbox.setAttribute("value", "true");
+    //     // checkbox.setAttribute("class", "checkbox");
+
+    //     // создаем функцию добавления/удаления класса
+    //     const toggle = () => {
+    //     label.classList.toggle("completed"); // добавляем/удаляем класс у <li>
+    //     };
+    //     checkbox.addEventListener("click", toggle); // создаем событие click для чекбокса и вызываем функцию toggle
+        
+    //     const title = document.createElement("span"); // создаем элемент <span>
+    //     // title.setAttribute("class", "title"); // добавляем класс title 
+    //     title.innerText = value; // вписываем в <span> содержимое инпута полученного из события keyup
+        
+    //     label.appendChild(checkbox); // добавляем чекбокс в <label>
+    //     label.appendChild(title); // добавляем title в <label>
+    //     li.appendChild(label); // добавляем <label> в <li>
+    //     tasklist.appendChild(li); // добавляем <li> в <ul>
+    //     i++;
+    // };
+
+    // // создаем функцию, которая будет вызываться при событии keyup
+    // const handleKeyup = (event) => {
+    //   // если код нажатой клавиши равен Enter, то
+    //   if (event.code === "Enter") {
+    //     addTask(event.target.value); // вызываем функцию addTask и передаем ей содержимое инпута
+    //     event.target.value = ""; // очищаем инпут
+    //   }
+    // };
+
+    // const taskinput = document.getElementById("taskinput"); // находим инпут
+    // taskinput.addEventListener("keyup", handleKeyup); // вешаем событие keyup на инпут, то есть следим за нажатыми клавишами.
+
+
+    // ЧТО ДОБАВИТЬ:
+    // 1. удаление таска
+    // 2. редактирование таска
+    // 3. архив тасков
+    // 4. дату добалвяению
+    // 5. добавяления таска на кнопку
+    // 6. добавить таблицу вместо списка
+    // 7. добавить чтобы нельзя вписывать пустое поле
+</script>
+</html>

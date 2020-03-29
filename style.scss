@@ -1,0 +1,138 @@
+@import "variables";
+
+@mixin flexCenter ($direction) {
+    display: flex;
+    justify-content: $direction;
+    align-items: center;
+}
+
+@mixin stylesForList {
+    padding: $defaultPadding;
+    border-bottom: 1px solid $borderColor;
+    font-size: $basicFontSize;
+}
+
+body {
+    background: $bgColor;
+    font-family: $mainFont;
+}
+#taskinput {
+    border-radius: $defaultBorderRadius;
+    padding: 10px;
+    height: 25px;
+    width: 300px;
+    margin-right: 15px;
+    font-size: $basicFontSize;
+    font-family: $mainFont;
+    border: 1px solid $borderColor;
+}
+/* main block */
+.main-block {
+    @include flexCenter(center);
+}
+.main-block__list {
+    border: 1px solid $borderColor;
+    border-radius: $defaultBorderRadius;
+    background: #fff;
+}
+.main-block__task-input {
+    @include flexCenter(space-between);
+    background: $listBgColor;
+    padding: $defaultPadding;
+    border-bottom: 1px solid $borderColor;
+    border-radius: 10px 10px 0 0;
+}
+
+table {
+    width: 100%;
+    tr {
+        &:first-child {
+            font-weight: 700;
+        }
+    }
+    td {
+        padding: 10px;
+        &:first-child {
+            text-align: center;
+        }
+        &:last-child {
+            text-align: center;
+        }
+    }
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+        @include stylesForList();
+        &:hover {
+            background: $listBgColor;
+            cursor: pointer;
+        }
+        &:last-child {
+            border-bottom: 0;
+        }
+    } 
+}
+
+
+button {
+    background: darken($buttonColor, 10%);
+    font-weight: 300;
+    font-family: $mainFont;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    width: 130px;
+    font-size: $basicFontSize;
+    border-radius: $defaultBorderRadius;
+    &:hover {
+        background: darken($buttonColor, 20%);
+    }
+}
+input:focus, button:focus {
+    outline: 0;
+}
+.completed {
+    text-decoration: line-through;
+    color: lighten($completedColor, 15%);
+}
+
+
+
+
+
+
+// nikitas styles
+// ul {
+//     margin: 0;
+//     padding: 0;
+// }
+// .item {
+//     font-size: 18px;
+//     padding: 20px;
+//     display: block;
+//     border-bottom: 1px solid #ccc;
+// }
+// .item:hover {
+//     background-color: antiquewhite;
+// }
+// .completed {
+//     text-decoration: line-through;
+// }
+
+
+
+
+// $baseFont : 10px;
+
+// @for $i from 4 to 7 {
+//     $newFontSize: $baseFont * 6 / $i;
+//     table > li .task-number#{$i} {
+//         font-size: $newFontSize;
+//     }
+// }
