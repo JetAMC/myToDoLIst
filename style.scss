@@ -33,7 +33,7 @@ body {
     @include flexCenter(center);
 }
 .main-block h1 {
-    text-align: center;
+    text-align: $centeredText;
 }
 .main-block__container {
     width: 1300px;
@@ -60,18 +60,18 @@ table {
         &:first-child {
             font-weight: 700;
         }
+        #delete {
+            cursor: pointer;
+            color: red;
+        }
     }
     td {
         padding: 10px;
-        &:first-child {
-            text-align: center;
-        }
-        &:last-child {
-            text-align: center;
+        &:first-child, &:nth-child(4n), &:last-child {
+            text-align: $centeredText;
         }
     }
 }
-
 
 button {
     background: darken($buttonColor, 10%);

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:700&amp;display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b60c7bcec8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="main-block">
@@ -67,7 +68,8 @@
         taskDate.innerText = dateTime;
 
         const remove = document.createElement("td");
-        remove.innerText = "X";
+        remove.setAttribute("id", "delete");
+        remove.innerHTML = '<i class="far fa-trash-alt"></i>';
 
         const removeItem = () => {
             tr.parentNode.removeChild(tr);
