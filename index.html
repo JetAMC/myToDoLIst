@@ -22,12 +22,13 @@
                     </div>
                 </div>
                 <div class="main-block__tasks">
-                    <table id="tableTaskList">
+                    <table border="1" id="tableTaskList">
                         <tr>
                             <td>#</td>
                             <td width="45%">Task</td>
                             <td>Created date</td>
-                            <td width="5%">Completed</td>
+                            <td>Completed</td>
+                            <td>Delete</td>
                         </tr>
                     </table>
                 </div>
@@ -65,12 +66,21 @@
         const taskDate = document.createElement("td");
         taskDate.innerText = dateTime;
 
+        const remove = document.createElement("td");
+        remove.innerText = "X";
+
+        const removeItem = () => {
+            tr.parentNode.removeChild(tr);
+        };
+        remove.addEventListener("click", removeItem);
+
         tableTaskList.appendChild(tr);
         tr.appendChild(taskNumber);
         tr.appendChild(title);
         tr.appendChild(taskDate);
         tr.appendChild(td);
         td.appendChild(checkbox);
+        tr.appendChild(remove);
         i++;
     };
 
