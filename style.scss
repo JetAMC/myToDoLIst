@@ -62,23 +62,6 @@ table {
 }
 
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    li {
-        @include stylesForList();
-        &:hover {
-            background: $listBgColor;
-            cursor: pointer;
-        }
-        &:last-child {
-            border-bottom: 0;
-        }
-    } 
-}
-
-
 button {
     background: darken($buttonColor, 10%);
     font-weight: 300;
@@ -103,23 +86,6 @@ input:focus, button:focus {
 }
 
 
-
-
-
-
-// nikitas styles
-// .item {
-//     font-size: 18px;
-//     padding: 20px;
-//     display: block;
-//     border-bottom: 1px solid #ccc;
-// }
-// .item:hover {
-//     background-color: antiquewhite;
-// }
-// .completed {
-//     text-decoration: line-through;
-// }
 
 
 

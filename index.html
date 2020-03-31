@@ -47,25 +47,23 @@
     const addNewTask = (value) => {
         const tr = document.createElement("tr");
         const td = document.createElement("td");
-        tr.setAttribute("for", "ch" + i);
 
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("id", "ch" + i);
 
         const toggle = () => {
             tr.classList.toggle("completed");
         };
         checkbox.addEventListener("click", toggle);
 
+        const taskNumber = document.createElement("td");
+        taskNumber.innerText = i;
+
         const title = document.createElement("td");
         title.innerText = value;
 
         const taskDate = document.createElement("td");
         taskDate.innerText = dateTime;
-
-        const taskNumber = document.createElement("td");
-        taskNumber.innerText = i;
 
         tableTaskList.appendChild(tr);
         tr.appendChild(taskNumber);
@@ -88,7 +86,6 @@
         }
     };
   
-
     taskinput.addEventListener("keyup", deleteValue);
     taskButton.addEventListener("mouseup", deleteValue);
  
@@ -101,5 +98,6 @@
     // 6. добавить таблицу вместо списка (done)
     // 7. добавить чтобы нельзя вписывать пустое поле (done)
     // 8. очистить поле после добавления на кнопку (done)
+    // 9. подправить размер кнопки и поля ввода
 </script>
 </html>
