@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:700&amp;display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b60c7bcec8.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
     <div class="main-block">
@@ -23,7 +24,22 @@
                     </div>
                 </div>
                 <div class="main-block__tasks">
-                    <table border="1" id="tableTaskList">
+                    <div class="main-block__table-title">
+                        <h3>New tasks</h3>
+                    </div>
+                    <table id="tableTaskList">
+                        <tr>
+                            <td>#</td>
+                            <td width="45%">Task</td>
+                            <td>Created date</td>
+                            <td>Completed</td>
+                            <td>Delete</td>
+                        </tr>
+                    </table>
+                    <div class="main-block__table-title" id="archived">
+                        <h3>Completed tasks</h3>
+                    </div>
+                    <table id="archive">
                         <tr>
                             <td>#</td>
                             <td width="45%">Task</td>
@@ -55,6 +71,7 @@
 
         const toggle = () => {
             tr.classList.toggle("completed");
+            $('.completed').appendTo("#archive");
         };
         checkbox.addEventListener("click", toggle);
 
@@ -102,7 +119,7 @@
     taskButton.addEventListener("mouseup", deleteValue);
  
     // ЧТО ДОБАВИТЬ:
-    // 1. удаление таска
+    // 1. удаление таска (done)
     // 2. редактирование таска
     // 3. архив тасков
     // 4. дату добалвяению (done)
@@ -110,6 +127,6 @@
     // 6. добавить таблицу вместо списка (done)
     // 7. добавить чтобы нельзя вписывать пустое поле (done)
     // 8. очистить поле после добавления на кнопку (done)
-    // 9. подправить размер кнопки и поля ввода
+    // 9. подправить размер кнопки и поля ввода (done)
 </script>
 </html>
