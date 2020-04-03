@@ -36,7 +36,7 @@
                             <td>Delete</td>
                         </tr>
                     </table>
-                    <div class="main-block__table-title" id="archived">
+                    <!-- <div class="main-block__table-title" id="archived">
                         <h3>Completed tasks</h3>
                     </div>
                     <table id="archive">
@@ -47,7 +47,7 @@
                             <td>Completed</td>
                             <td>Delete</td>
                         </tr>
-                    </table>
+                    </table> -->
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
 
         const toggle = () => {
             tr.classList.toggle("completed");
-            $('.completed').appendTo("#archive");
+            // $('.completed').appendTo("#archive");
         };
         checkbox.addEventListener("click", toggle);
 
@@ -128,5 +128,8 @@
     // 7. добавить чтобы нельзя вписывать пустое поле (done)
     // 8. очистить поле после добавления на кнопку (done)
     // 9. подправить размер кнопки и поля ввода (done)
+    // 10. completed tasks toggle/hide if empty, show if with content
+    // 11. delete tasks new table + toggle/hide if empty, show if with content
+    // 12. izmenitj dizajn checkboxa
 </script>
 </html>
