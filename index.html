@@ -24,9 +24,9 @@
                     </div>
                 </div>
                 <div class="main-block__tasks">
-                    <div class="main-block__table-title">
+                    <!-- <div class="main-block__table-title">
                         <h3>New tasks</h3>
-                    </div>
+                    </div> -->
                     <table id="tableTaskList">
                         <tr>
                             <td>#</td>
@@ -49,6 +49,9 @@
                         </tr>
                     </table> -->
                 </div>
+            </div>
+            <div id="list">
+
             </div>
         </div>
     </div>
@@ -92,7 +95,7 @@
             tr.parentNode.removeChild(tr);
         };
         remove.addEventListener("click", removeItem);
-
+        
         tableTaskList.appendChild(tr);
         tr.appendChild(taskNumber);
         tr.appendChild(title);
@@ -101,7 +104,31 @@
         td.appendChild(checkbox);
         tr.appendChild(remove);
         i++;
+
+        var obj = title.innerText;
+        // var obj = {
+        //     // Nr: taskNumber.innerText,
+        //     Task: title.innerText
+        //     // Date: taskDate.innerText
+        // }
+        console.log(obj);
+        // localStorage.setItem(i,JSON.stringify(obj));
+        localStorage.setItem(localStorage.length + 1,JSON.stringify(obj));
+        
+        
     };
+
+    
+    const textList = document.getElementById("list");
+    for (var j = 1; j <= localStorage.length; j++) {
+        // console.log(localStorage[j]);
+        textList.innerHTML += localStorage[j];
+    }
+
+
+// che daljshe ? nado delatj peremennuj, create element + setattribute tablici + cikl (analog u nikiti ch + i)
+
+
 
     const taskinput = document.getElementById("taskinput");
     const taskButton = document.getElementById("taskButton");
@@ -117,6 +144,7 @@
   
     taskinput.addEventListener("keyup", deleteValue);
     taskButton.addEventListener("mouseup", deleteValue);
+
  
     // ЧТО ДОБАВИТЬ:
     // 1. удаление таска (done)
@@ -132,4 +160,11 @@
     // 11. delete tasks new table + toggle/hide if empty, show if with content
     // 12. izmenitj dizajn checkboxa
 </script>
+
+<script>        
+  
+
+
+
+    </script>
 </html>
