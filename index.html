@@ -48,11 +48,18 @@
                             <td>Delete</td>
                         </tr>
                     </table> -->
+                    <table border="1" id="list">
+                        <tr>
+                            <td>#</td>
+                            <td width="45%">Task Archived</td>
+                            <td>Created date</td>
+                            <td>Completed</td>
+                            <td>Delete</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <div id="list">
 
-            </div>
         </div>
     </div>
 </body>
@@ -105,28 +112,46 @@
         tr.appendChild(remove);
         i++;
 
-        var obj = title.innerText;
-        // var obj = {
-        //     // Nr: taskNumber.innerText,
-        //     Task: title.innerText
-        //     // Date: taskDate.innerText
-        // }
-        console.log(obj);
-        // localStorage.setItem(i,JSON.stringify(obj));
-        localStorage.setItem(localStorage.length + 1,JSON.stringify(obj));
+        // var obj = title.innerText;
+        var obj = {
+            Task: title.innerText,
+            Date: taskDate.innerText
+        };
+
         
-        
-    };
+        // localStorage.setItem(localStorage.length + 1,JSON.stringify(obj));
+
+        localStorage.setItem(localStorage.length + 1, obj.Task);
+        // localStorage.setItem(Object.keys(obj), obj.Nr + ', ' + obj.Task + ', ' + obj.Date);
 
     
-    const textList = document.getElementById("list");
+    };
+
+
+    var objTable = document.getElementById("list");
+
     for (var j = 1; j <= localStorage.length; j++) {
-        // console.log(localStorage[j]);
-        textList.innerHTML += localStorage[j];
+
+        var objTr = document.createElement("tr");
+
+        var objCount = document.createElement("td");
+        objCount.innerText = j;
+
+        var objTd = document.createElement("td");
+
+        var objInput = document.createElement("input");
+        objInput.setAttribute("type", "checkbox");
+
+        objTd.innerText = localStorage[j];
+
+        objTable.appendChild(objTr);
+        objTr.appendChild(objCount);
+        objTr.appendChild(objTd);
+        
+
+        // taskTd.innerText += localStorage[j];
     }
 
-
-// che daljshe ? nado delatj peremennuj, create element + setattribute tablici + cikl (analog u nikiti ch + i)
 
 
 
