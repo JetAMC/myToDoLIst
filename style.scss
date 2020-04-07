@@ -71,7 +71,7 @@ table {
     }
     td {
         padding: 10px;
-        &:first-child, &:nth-child(4n), &:last-child {
+        &:first-child, &:nth-child(3), &:last-child {
             text-align: $centeredText;
         }
     }
