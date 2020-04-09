@@ -65,7 +65,7 @@ body {
 }
 
 .main-block__table-title {
-  padding: 0px 0px 0px 10px;
+  padding: 0 0 0 10px;
 }
 
 table {
@@ -89,8 +89,8 @@ table td:first-child, table td:nth-child(3), table td:last-child {
   text-align: center;
 }
 
-button {
-  background: #0000cc;
+#taskButton {
+  background: #0062cc;
   font-weight: 300;
   font-family: Roboto, sans-serif;
   border: 0;
@@ -102,11 +102,11 @@ button {
   border-radius: 10px;
 }
 
-button:hover {
-  background: #000099;
+#taskButton:hover {
+  background: #004a99;
 }
 
-input:focus, button:focus {
+input:focus, #taskButton:focus {
   outline: 0;
 }
 
